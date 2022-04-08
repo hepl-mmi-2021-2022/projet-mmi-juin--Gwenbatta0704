@@ -25,16 +25,24 @@ Les règles de ce jeu sont assez simple. Le but est de faire monter le petit bon
 - Bonhomme qui se déplace en hauteur (en sautant).
 - Plateforme apparraissent de façon aléatoire
 - Score augmente en fonction de la hauteur
+- Si le joueur tombe la partie prend fin
 - N'utilier que le ressort pour prendre hauteur supplémentaire
 - Déplacement gauche-droite avec passage hors écran
-- Presence des différente plateformes et leur "spécificité" ?
+- Présence des différente plateformes et leur "spécificité" ?
  
 
 ## Liste de chose à faire
 
 - [ ] Modifier index pour ajouter section de début de partie et fin de partie (_class hidden_);
 - [ ] Ajouter css pour les textes, les boutons;
-- [ ] 
+- [ ] Dessiner différentes plateformes de façon aléatoire;
+- [ ] Dessiner le Doodler et ses différent changements (sprite);
+- [ ] Faire bouger le Doodler avec des sauts puis bouger en suivant flèche du clavier;
+- [ ] Détecter collision entre Doodler et les plateformes;
+- [ ] Dessiner de façon aléatoire les ressorts;
+- [ ] Faire rebondir plus haut le Doodler lors de la collision avec ressort;
+- [ ] Faire varier le score;
+- [ ] Lorsque le Doodler tomber dire au joueur qu'il a perdu + ajout section "Recommencer";
 
 (Voir démonstration du jeu [ici](https://www.youtube.com/watch?v=wjofzwaC_Oo&t=958s&ab_channel=grivrus347))
 
