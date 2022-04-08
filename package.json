@@ -1,5 +1,5 @@
 {
-  "name": "template-projet-examen",
+  "name": "doodle-jump",
   "version": "1.0.0",
   "description": "> A JS exercise use at HEPL for MMI.",
   "main": "webpack.mix.js",
