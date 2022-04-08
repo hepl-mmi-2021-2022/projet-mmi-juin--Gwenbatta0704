@@ -1,5 +1,6 @@
-#Doodle Jump
-##Description
+# Doodle Jump
+
+## Description
 Doodle Jump est un jeu de type plate-forme développé et publié par [Lima Sky ](http://www.limasky.com/), qui ont developper d'autres jeux mais qui n'ont pas rencontrer un grand succès, et partager sur différent supports tel que iOS, windows phone, Android, Java Mobile, etc... Ce jeu est disponible en anglais et en français. Doodle Jump tire en réalité son inspiration d'un jeu japonais nommer [Papijump](https://www.youtube.com/watch?v=Fx_vVv6J8gM&ab_channel=Tech%26NostalgiaKingdom) de Sunflat Games
 
 ### Date de publication
