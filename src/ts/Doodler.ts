@@ -29,7 +29,7 @@ export class Doodler {
     animate(){
         if (this.position.x <0 || this.position.x> this.canvasElement.width){
             this.move.x = -this.move.x
-        }if (this.position.y < 450 || this.position.y> this.canvasElement.height){
+        }if (this.position.y < this.canvasElement.height - settings.doodler.jump || this.position.y> this.canvasElement.height){
             this.move.y = -this.move.y
         }
         this.position.x += this.move.x;

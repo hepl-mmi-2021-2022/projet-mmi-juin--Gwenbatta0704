@@ -10,9 +10,9 @@ export const settings = {
         },
         ratioColor:0.7,
         maxCount : 20,
-        verticalStart : 1/10,
+        verticalStart : 1/8,
         verticalGap:{min:1/20, max: 1/10},
-        horizontalGap:{min:10, max: 288},
+        horizontalGap:{min:60, max: 288},
         width:45,
         height:14,
         move : {x: 0.5, y: 0}
@@ -25,6 +25,7 @@ export const settings = {
             {sx: 0, sy: 380, height:117, width: 148},
             {sx: 0, sy: 486, height:117, width: 148},
         ],
-        move : {x: 0, y: 0.8}
+        move : {x: 0, y: 0.8},
+        jump : 100,
     }
 }
