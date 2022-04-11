@@ -27,8 +27,12 @@ export class Doodler {
         this.checkTouchPlatforms();
     }
     animate(){
-        if (this.position.x <0 || this.position.x> this.canvasElement.width){
+        if (this.position.x < -35){
             this.move.x = -this.move.x
+            this.position.x = this.canvasElement.width;
+        } if(this.position.x> this.canvasElement.width + 35){
+            this.move.x = -this.move.x
+            this.position.x = 0;
         }if (this.position.y < this.canvasElement.height - settings.doodler.jump || this.position.y> this.canvasElement.height){
             this.move.y = -this.move.y
         }
@@ -46,7 +50,8 @@ export class Doodler {
         this.platforms.forEach((platform: Platforms)=>{
             if (this.position.y + 30 > platform.position.y + platform.height){
                 console.log(this.platforms[this.platforms.length-1])
-             //this.position.y -=  this.canvasElement.height - platform.position.y
+              // this.position.y -=  this.canvasElement.height - platform.position.y;
+              //   this.animate();
             }
         })
     }
