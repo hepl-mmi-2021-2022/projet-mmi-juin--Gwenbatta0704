@@ -36,8 +36,10 @@ Les règles de ce jeu sont assez simple. Le but est de faire monter le petit bon
 - [ ] Modifier index pour ajouter section de début de partie et fin de partie (_class hidden_);
 - [x] Ajouter css pour les textes, les boutons;
 - [x] Dessiner différentes plateformes de façon aléatoire;
+- [x] Faire bouger les plateformes bleues
+- [ ] Dessiner platformes avec un ratio du bas (éviter de commencer trop bas)
 - [ ] Dessiner le Doodler et ses différent changements (sprite);
-- [ ] Faire bouger le Doodler avec des sauts puis bouger en suivant flèche du clavier;
+- [x] Faire bouger le Doodler avec des sauts puis bouger en suivant flèche du clavier;
 - [ ] Détecter collision entre Doodler et les plateformes;
 - [ ] Dessiner de façon aléatoire les ressorts;
 - [ ] Faire rebondir plus haut le Doodler lors de la collision avec ressort;

@@ -8,7 +8,8 @@ export const settings = {
             color: ['#00A8D6','#AD622C'],
             stroke:'#000000'
         },
-        ratioColor:0.7,
+        ratioColor:0.85,
+        ratioSpring : 0.1,
         maxCount : 20,
         verticalStart : 1/8,
         verticalGap:{min:1/20, max: 1/10},
@@ -27,5 +28,5 @@ export const settings = {
         ],
         move : {x: 0, y: 0.8},
         jump : 100,
-    }
+    },
 }

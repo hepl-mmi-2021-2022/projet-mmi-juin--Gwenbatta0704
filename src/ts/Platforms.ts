@@ -1,16 +1,19 @@
 import {random, random2} from "./helpers";
 import {settings} from "./settings";
+import {Spring} from "./Spring";
 
 export class Platforms {
     private canvasElement: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     public position: { x: number; y: number };
     private platforms: Platforms[];
-    private width: number;
+    public width: number;
     public height: number;
     private color: string;
     private randomColor: number;
     private move: { x: number; y: number };
+    private randomSpring: number;
+
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[]) {
         this.canvasElement = canvasElement;
@@ -27,6 +30,7 @@ export class Platforms {
         this.width = settings.platform.width;
         this.height = settings.platform.height;
         this.randomColor = Math.random();
+        this.randomSpring = Math.random();
         if (this.randomColor < settings.platform.ratioColor) {
             this.color = settings.platform.platforms.green
         } else {
@@ -47,6 +51,17 @@ export class Platforms {
         this.ctx.stroke();
         this.ctx.fill();
         this.ctx.closePath();
+        if (this.randomSpring < settings.platform.ratioSpring){
+
+        this.ctx.scale(1, 0.5);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = 'black';
+        this.ctx.arc(this.width/2, this.height,10,0,Math.PI*2);
+        this.ctx.arc(this.width/2, this.height - 10,10,0,Math.PI*2);
+        this.ctx.arc(this.width/2, this.height - 20,10,0,Math.PI*2);
+        this.ctx.arc(this.width/2, this.height - 30,10,0,Math.PI*2);
+        this.ctx.stroke();
+        }
         this.ctx.restore();
     }
 

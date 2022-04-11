@@ -16,7 +16,6 @@ export class Canvas{
         this.ctx = this.canvasElement.getContext('2d') as CanvasRenderingContext2D;
         this.fond = new Fond(this.canvasElement,this.ctx);
         this.platforms = [];
-        // this.doodler = new Doodler(this.canvasElement, this.ctx, this.platforms);
          this.update();
          this.draw();
     }
