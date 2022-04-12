@@ -48,7 +48,6 @@ export class Doodler {
         }
         if (this.position.y < this.canvasElement.height - settings.doodler.jump || this.position.y > this.canvasElement.height) {
             this.move.y = -this.move.y
-
         }
             // console.log(this.position.y)
         this.position.x += this.move.x;
