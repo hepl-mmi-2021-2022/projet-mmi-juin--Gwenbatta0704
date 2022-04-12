@@ -26,7 +26,7 @@ export class Platforms {
         }
         this.position = {
             x: this.canvasElement.width - random2(settings.platform.horizontalGap),
-            y: this.platforms.length === 0 ? settings.platform.verticalStart * this.canvasElement.height : this.platforms[this.platforms.length - 1].position.y + random2(settings.platform.verticalGap) * this.canvasElement.height,
+            y: this.platforms.length === 0 ? this.canvasElement.height-(settings.platform.verticalStart * this.canvasElement.height)  : this.platforms[this.platforms.length - 1].position.y - random2(settings.platform.verticalGap) * this.canvasElement.height,
         }
         this.width = settings.platform.width;
         this.height = settings.platform.height;
@@ -54,15 +54,7 @@ export class Platforms {
         this.ctx.closePath();
         if (this.randomSpring < settings.platform.ratioSpring){
             this.ctx.scale(0.5,0.5)
-        this.ctx.drawImage(this.sprite,settings.spring.frames[0].sx, settings.spring.frames[0].sy,settings.spring.frames[0].width,settings.spring.frames[0].height,this.width*0.5,-this.height*2,settings.spring.frames[0].width,settings.spring.frames[0].height)
-        // this.ctx.scale(1, 0.5);
-        // this.ctx.beginPath();
-        // this.ctx.strokeStyle = 'black';
-        // this.ctx.arc(this.width/2, this.height,10,0,Math.PI*2);
-        // this.ctx.arc(this.width/2, this.height - 10,10,0,Math.PI*2);
-        // this.ctx.arc(this.width/2, this.height - 20,10,0,Math.PI*2);
-        // this.ctx.arc(this.width/2, this.height - 30,10,0,Math.PI*2);
-        // this.ctx.stroke();
+            this.ctx.drawImage(this.sprite,settings.spring.frames[0].sx, settings.spring.frames[0].sy,settings.spring.frames[0].width,settings.spring.frames[0].height,this.width*0.5,-this.height*2,settings.spring.frames[0].width,settings.spring.frames[0].height)
         }
         this.ctx.restore();
     }

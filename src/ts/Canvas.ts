@@ -20,9 +20,9 @@ export class Canvas{
         this.platforms = [];
         this.sprite = new Image();
         this.sprite.src = settings.doodler.sprite;
+        this.update();
         this.doodler = new Doodler(this.canvasElement, this.ctx, this.platforms,this.sprite)
         this.draw();
-         this.update();
     }
     update(){
         for (let i = 0; i < settings.platform.maxCount; i++) {
@@ -33,8 +33,7 @@ export class Canvas{
         this.platforms.forEach((platform:Platforms)=>{
             platform.draw();
         });
-
-
+        this.doodler.draw();
     }
 
 }
