@@ -32,20 +32,26 @@ Les règles de ce jeu sont assez simple. Le but est de faire monter le petit bon
  
 
 ## Liste de chose à faire
-
+### HTML & CSS
 - [ ] Modifier index pour ajouter section de début de partie et fin de partie (_class hidden_);
 - [x] Ajouter css pour les textes, les boutons;
-- [x] Dessiner différentes plateformes de façon aléatoire;
-- [x] Faire bouger les plateformes bleues
-- [ ] Dessiner platformes avec un ratio du bas (éviter de commencer trop bas)
-- [x] Dessiner le Doodler et ses différent changements (sprite);
-- [x] Faire bouger le Doodler avec des sauts puis bouger en suivant flèche du clavier;
-- [ ] Détecter collision entre Doodler et les plateformes;
-- [x] Sprite des ressorts
-- [x] Dessiner de façon aléatoire les ressorts;
-- [ ] Faire rebondir plus haut le Doodler lors de la collision avec ressort;
 - [ ] Faire varier le score;
 - [ ] Lorsque le Doodler tomber dire au joueur qu'il a perdu + ajout section "Recommencer";
+### Plateformes
+- [x] Dessiner différentes plateformes de façon aléatoire;
+- [x] Faire bouger les plateformes bleues;
+- [x] Dessiner platformes avec un ratio du bas (éviter de commencer trop bas);
+### Doodler
+- [x] Dessiner le Doodler avec sprite;
+- [ ] Faire apparaitre  différent changements Doodler (sprite);
+- [x] Faire bouger le Doodler avec des sauts puis bouger en suivant flèche du clavier;
+- [ ] Détecter collision entre Doodler et les plateformes;
+### Ressorts
+- [x] Sprite des ressorts;
+- [ ] Varier le sprite des ressorts lors de la collision avec le ressort
+- [x] Dessiner de façon aléatoire les ressorts;
+- [ ] Faire rebondir plus haut le Doodler lors de la collision avec ressort;
+
 
 (Voir démonstration du jeu [ici](https://www.youtube.com/watch?v=wjofzwaC_Oo&t=958s&ab_channel=grivrus347))
 
