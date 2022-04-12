@@ -1,6 +1,5 @@
 import {random, random2} from "./helpers";
 import {settings} from "./settings";
-import {Spring} from "./Spring";
 
 export class Platforms {
     private canvasElement: HTMLCanvasElement;

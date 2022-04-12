@@ -27,9 +27,11 @@ export class GameController {
             if (key.key === 'ArrowLeft'){
                 this.animation.canvas.doodler.move.x = -0.8;
                 this.animation.canvas.doodler.animate();
+                this.animation.canvas.doodler.animationStep = 1;
             }if (key.key === 'ArrowRight'){
                 this.animation.canvas.doodler.move.x = 0.8;
                 this.animation.canvas.doodler.animate();
+                this.animation.canvas.doodler.animationStep = 0;
             }
         })
         window.addEventListener('keyup', (key: KeyboardEvent) => {

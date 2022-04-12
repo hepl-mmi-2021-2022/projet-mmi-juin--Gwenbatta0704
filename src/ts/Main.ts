@@ -1,6 +1,7 @@
 import {Canvas} from "./Canvas";
 import {Animation} from "./Animation";
 import {GameController} from "./GameController";
+import {Doodler} from "./Doodler";
 
 class Main{
     private canvas: Canvas;

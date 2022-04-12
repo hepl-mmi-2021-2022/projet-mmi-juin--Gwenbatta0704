@@ -21,10 +21,10 @@ export const settings = {
     doodler : {
         sprite : '../../sprite-doodle.png',
         frames : [
-            {sx: 0, sy: 157, height:117, width:148},
-            {sx: 0, sy: 267, height:117, width:148},
-            {sx: 0, sy: 380, height:117, width: 148},
-            {sx: 0, sy: 486, height:117, width: 148},
+            {sx: 31, sy: 122, height:78, width:78},
+            {sx: 0, sy: 202, height:78, width:78},
+            {sx: 31, sy: 290, height:70, width: 78},
+            {sx: 0, sy: 373, height:70, width: 78},
         ],
         move : {x: 0, y: 0.8},
         jump : 100,
