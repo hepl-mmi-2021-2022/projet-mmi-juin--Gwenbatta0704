@@ -29,4 +29,11 @@ export const settings = {
         move : {x: 0, y: 0.8},
         jump : 100,
     },
+    spring : {
+        sprite : '../../sprite-doodle.png',
+        frames: [
+            {sx: 0, sy: 469, height:30, width:48},
+            {sx: 0, sy: 500, height:53, width:48},
+        ]
+    }
 }

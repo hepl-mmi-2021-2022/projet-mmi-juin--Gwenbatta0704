@@ -6,6 +6,7 @@ export class Platforms {
     private ctx: CanvasRenderingContext2D;
     public position: { x: number; y: number };
     private platforms: Platforms[];
+    public sprite: HTMLImageElement;
     public width: number;
     public height: number;
     private color: string;
@@ -14,10 +15,11 @@ export class Platforms {
     private randomSpring: number;
 
 
-    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[]) {
+    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[], sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;
         this.ctx = ctx;
         this.platforms = platforms;
+        this.sprite = sprite;
         this.move = {
             x: settings.platform.move.x,
             y: settings.platform.move.y,
@@ -51,15 +53,16 @@ export class Platforms {
         this.ctx.fill();
         this.ctx.closePath();
         if (this.randomSpring < settings.platform.ratioSpring){
-
-        this.ctx.scale(1, 0.5);
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = 'black';
-        this.ctx.arc(this.width/2, this.height,10,0,Math.PI*2);
-        this.ctx.arc(this.width/2, this.height - 10,10,0,Math.PI*2);
-        this.ctx.arc(this.width/2, this.height - 20,10,0,Math.PI*2);
-        this.ctx.arc(this.width/2, this.height - 30,10,0,Math.PI*2);
-        this.ctx.stroke();
+            this.ctx.scale(0.5,0.5)
+        this.ctx.drawImage(this.sprite,settings.spring.frames[0].sx, settings.spring.frames[0].sy,settings.spring.frames[0].width,settings.spring.frames[0].height,this.width*0.5,-this.height*2,settings.spring.frames[0].width,settings.spring.frames[0].height)
+        // this.ctx.scale(1, 0.5);
+        // this.ctx.beginPath();
+        // this.ctx.strokeStyle = 'black';
+        // this.ctx.arc(this.width/2, this.height,10,0,Math.PI*2);
+        // this.ctx.arc(this.width/2, this.height - 10,10,0,Math.PI*2);
+        // this.ctx.arc(this.width/2, this.height - 20,10,0,Math.PI*2);
+        // this.ctx.arc(this.width/2, this.height - 30,10,0,Math.PI*2);
+        // this.ctx.stroke();
         }
         this.ctx.restore();
     }

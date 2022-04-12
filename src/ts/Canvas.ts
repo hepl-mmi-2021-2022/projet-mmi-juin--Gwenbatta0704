@@ -26,7 +26,7 @@ export class Canvas{
     }
     update(){
         for (let i = 0; i < settings.platform.maxCount; i++) {
-            this.platforms.push(new Platforms(this.canvasElement,this.ctx, this.platforms));
+            this.platforms.push(new Platforms(this.canvasElement,this.ctx, this.platforms, this.sprite));
         }
     }
     draw(){
