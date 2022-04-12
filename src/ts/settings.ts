@@ -10,7 +10,7 @@ export const settings = {
         },
         ratioColor:0.85,
         ratioSpring : 0.1,
-        maxCount : 1,
+        maxCount : 2,
         verticalStart : 1/10,
         verticalGap:{min:1/20, max: 1/10},
         horizontalGap:{min:60, max: 288},
