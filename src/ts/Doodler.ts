@@ -15,6 +15,7 @@ export class Doodler {
     private maxInterval: number;
     private maxAnimationStep: number;
     public animationStep: number;
+    private test: number;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[], sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;
@@ -31,7 +32,7 @@ export class Doodler {
         this.maxInterval = 5;
         this.maxAnimationStep = settings.doodler.frames.length - 1;
         this.animationStep = 0
-
+        this.test = settings.doodler.jump;
         this.animate();
         //this.draw();
 
@@ -46,24 +47,18 @@ export class Doodler {
             this.move.x = -this.move.x
             this.position.x = 0;
         }
-        for (let i = 0; i < this.platforms.length; i++) {
-            i = 1
-            //console.log('ici')
-            if (this.position.y < this.canvasElement.height - (settings.doodler.jump*i) || this.position.y > this.canvasElement.height) {
-                //console.log('titi')
-                this.move.y = -this.move.y
-            }
+        if (this.position.y < this.canvasElement.height - this.test || this.position.y > this.canvasElement.height) {
+            console.log(this.canvasElement.height - this.test)
+            this.move.y = -this.move.y
         }
-        // if (this.position.y < this.canvasElement.height - settings.doodler.jump || this.position.y > this.canvasElement.height) {
-        //     this.move.y = -this.move.y
-        // }
-        //console.log(this.position.y)
         this.position.x += this.move.x;
         this.position.y += this.move.y;
         this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
         this.checkTouchPlatforms();
         this.draw();
+
     }
+
     draw() {
         this.ctx.save();
         this.ctx.translate(this.position.x + settings.doodler.frames[this.animationStep].width / 26, this.position.y - settings.doodler.frames[this.animationStep].height / 2);
@@ -75,7 +70,8 @@ export class Doodler {
     }
 
     checkTouchPlatforms() {
-        this.platforms.forEach((platform: Platforms) => {
+        this.platforms.forEach((platform: Platforms, index) => {
+
             const bottomDoodlerL = {
                 x: this.position.x,
                 y: Math.floor(this.position.y),
@@ -96,13 +92,17 @@ export class Doodler {
             };
             if ((bottomDoodlerL.y === platformTopL.y) || (bottomDoodlerL.y === platformTopR.y) || (bottomDoodlerR.y === platformTopL.y) || (bottomDoodlerR.y === platformTopR.y)) {
                 if ((bottomDoodlerR.x >= platformTopL.x) && (bottomDoodlerL.x <= platformTopR.x)) {
-                    // platformTopR.y = this.canvasElement.height
-                    this.position.y = platformTopR.y ;
-
-                    //this.move.y = -this.move.y;
-                    // this.animate();
-                    // this.position.y -= settings.doodler.jump;
-                    // this.move.y = -this.move.y;
+                    //console.log(this.platforms.indexOf(platform) , index)
+                    if (this.platforms.indexOf(platform) === index) {
+                        //this.position.y -= this.position.y +Math.floor(platform.position.y);
+                        console.log(Math.floor(platform.position.y))
+                        this.test -= platform.width
+                        this.test -= platform.width
+                        this.move.y = -this.move.y;
+                    }
+                    settings.doodler.jump += platform.width
+                    this.position.y += this.move.y;
+                    //console.log(settings.doodler.jump )
                 }
             }
         })

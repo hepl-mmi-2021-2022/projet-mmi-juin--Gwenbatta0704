@@ -64,11 +64,7 @@ export class Platforms {
             if (this.position.x < 0 || this.position.x > this.canvasElement.width - this.width) {
                 this.move.x = -this.move.x
             }
-            if (this.position.y < 0 || this.position.y > this.canvasElement.height) {
-                this.move.y = -this.move.y
-            }
             this.position.x += this.move.x;
-            this.position.y += this.move.y;
             this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
         }
     }

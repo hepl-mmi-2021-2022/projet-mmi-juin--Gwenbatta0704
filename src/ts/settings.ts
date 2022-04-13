@@ -26,8 +26,9 @@ export const settings = {
             {sx: 31, sy: 290, height:70, width: 78},
             {sx: 0, sy: 373, height:70, width: 78},
         ],
-        move : {x: 0, y: 0.7},
-        jump : 80,
+        move : {x: 0, y: 0.9},
+        jump : 100,
+        Maxjump : 50,
     },
     spring : {
         sprite : '../../sprite-doodle.png',
