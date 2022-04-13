@@ -32,6 +32,7 @@ export class GameController {
                 this.animation.canvas.doodler.move.x = 0.8;
                 this.animation.canvas.doodler.animate();
                 this.animation.canvas.doodler.animationStep = 0;
+
             }
         })
         window.addEventListener('keyup', (key: KeyboardEvent) => {

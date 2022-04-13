@@ -15,6 +15,7 @@ export class Animation{
             platform.animate();
         });
         this.canvas.doodler.animate()
+        this.canvas.doodler.checkTouchPlatforms()
         this.canvas.draw();
     }
 }
