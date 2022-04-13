@@ -40,6 +40,7 @@ Les règles de ce jeu sont assez simple. Le but est de faire monter le petit bon
 ### Plateformes
 - [x] Dessiner différentes plateformes de façon aléatoire;
 - [x] Faire bouger les plateformes bleues;
+- [x] Faire disparaitre plateformes brunes;
 - [x] Dessiner platformes avec un ratio du bas (éviter de commencer trop bas);
 ### Doodler
 - [x] Dessiner le Doodler avec sprite;

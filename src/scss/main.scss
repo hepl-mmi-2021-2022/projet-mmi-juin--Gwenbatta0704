@@ -30,3 +30,19 @@ canvas {
 ::selection {
   background: transparent;
 }
+.container{
+  position: relative;
+}
+.jeu{
+  position: absolute;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  background: aqua;
+
+}
+#score{
+  font-weight: 700;
+  margin-bottom: 5px;
+}

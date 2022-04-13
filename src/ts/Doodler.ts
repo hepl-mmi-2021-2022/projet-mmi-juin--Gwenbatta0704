@@ -7,7 +7,7 @@ export class Doodler {
     private ctx: CanvasRenderingContext2D;
     public sprite: HTMLImageElement;
     // private sprite: HTMLImageElement;
-    private position: { x: number; y: number };
+    public position: { x: number; y: number };
     public platforms: Platforms[];
     public isHeating: boolean;
     public move: { x: number, y: number };
@@ -15,6 +15,7 @@ export class Doodler {
     private maxInterval: number;
     private maxAnimationStep: number;
     public animationStep: number;
+    private iCount: number;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[], sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;
@@ -31,6 +32,8 @@ export class Doodler {
         this.maxInterval = 5;
         this.maxAnimationStep = settings.doodler.frames.length - 1;
         this.animationStep = 0
+        this.iCount = 3;
+
         this.animate();
         //this.draw();
 
@@ -89,12 +92,27 @@ export class Doodler {
             };
             if ((bottomDoodlerL.y === platformTopL.y) || (bottomDoodlerL.y === platformTopR.y) || (bottomDoodlerR.y === platformTopL.y) || (bottomDoodlerR.y === platformTopR.y)) {
                 if ((bottomDoodlerR.x >= platformTopL.x) && (bottomDoodlerL.x <= platformTopR.x)) {
-                    this.position.y = platformTopL.y
+
                     this.move.y = -this.move.y
-                    settings.doodler.jump += platform.width
+                    if (platform.active) {
+                        settings.doodler.jump += 50 * index
+                        this.position.y += this.move.y
+                        console.log('ici')
+                        platform.active = false
+                        if (platform.color === 'rgba(173,98,44,1)') {
+                            this.platforms.splice(index, 1);
+                        }
+                    } else {
+                        // settings.doodler.jump -= 50 * index
+                        //this.move.y += this.move.y
+                        platform.active = true
+                    }
+                    this.position.y = platformTopL.y
                 }
-                this.position.y += this.move.y
+                //this.position.y += this.move.y
                 console.log(settings.doodler.jump)
+                console.log(platform.active, index)
+                settings.doodler.jump = 100
             }
         })
     }

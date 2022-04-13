@@ -5,18 +5,19 @@ export const settings = {
     platform : {
         platforms: {
             green:'#00C600',
-            color: ['#00A8D6','#AD622C'],
-            stroke:'#000000'
+            color: ['#00A8D6','rgba(173,98,44,1)'],
+            stroke:'rgba(0,0,0,1)'
         },
         ratioColor:0.85,
         ratioSpring : 0.1,
-        maxCount : 2,
+        maxCount : 3,
         verticalStart : 1/10,
         verticalGap:{min:1/20, max: 1/10},
         horizontalGap:{min:60, max: 288},
         width:45,
         height:14,
-        move : {x: 0.5, y: 0}
+        move : {x: 0.5, y: 0},
+        active : false,
     },
     doodler : {
         sprite : '../../sprite-doodle.png',

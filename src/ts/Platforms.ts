@@ -9,7 +9,9 @@ export class Platforms {
     public sprite: HTMLImageElement;
     public width: number;
     public height: number;
-    private color: string;
+    public active : boolean;
+    public color: string;
+    public stroke: string;
     private randomColor: number;
     private move: { x: number; y: number };
     private randomSpring: number;
@@ -24,6 +26,7 @@ export class Platforms {
             x: settings.platform.move.x,
             y: settings.platform.move.y,
         }
+        this.active = false;
         this.position = {
             x: this.canvasElement.width - random2(settings.platform.horizontalGap),
             y: this.platforms.length === 0 ? this.canvasElement.height-(settings.platform.verticalStart * this.canvasElement.height)  : this.platforms[this.platforms.length - 1].position.y - random2(settings.platform.verticalGap) * this.canvasElement.height,
@@ -37,13 +40,14 @@ export class Platforms {
         } else {
             this.color = settings.platform.platforms.color[random(0, settings.platform.platforms.color.length, false)];
         }
+        this.stroke = settings.platform.platforms.stroke
         this.draw();
         this.animate();
     }
     draw() {
         this.ctx.save();
         this.ctx.translate(this.position.x, this.position.y);
-        this.ctx.strokeStyle = settings.platform.platforms.stroke
+        this.ctx.strokeStyle = this.stroke
         this.ctx.fillStyle = this.color;
         this.ctx.beginPath();
         this.ctx.rect(0, 0, this.width, this.height);
@@ -52,7 +56,7 @@ export class Platforms {
         this.ctx.stroke();
         this.ctx.fill();
         this.ctx.closePath();
-        if (this.randomSpring < settings.platform.ratioSpring){
+        if ((this.randomSpring < settings.platform.ratioSpring) && (this.color === settings.platform.platforms.green)){
             this.ctx.scale(0.5,0.5)
             this.ctx.drawImage(this.sprite,settings.spring.frames[0].sx, settings.spring.frames[0].sy,settings.spring.frames[0].width,settings.spring.frames[0].height,this.width*0.5,-this.height*2,settings.spring.frames[0].width,settings.spring.frames[0].height)
         }

@@ -23,17 +23,25 @@ export class Canvas{
         this.update();
         this.doodler = new Doodler(this.canvasElement, this.ctx, this.platforms,this.sprite)
         this.draw();
+
     }
     update(){
         for (let i = 0; i < settings.platform.maxCount; i++) {
             this.platforms.push(new Platforms(this.canvasElement,this.ctx, this.platforms, this.sprite));
-        }
+
+       }
     }
     draw(){
         this.platforms.forEach((platform:Platforms)=>{
             platform.draw();
         });
         this.doodler.draw();
+        this.score();
+    }
+    score(){
+        this.ctx.fillStyle = '#5a5816'
+        this.ctx.font = '20px Gloria Hallelujah';
+        this.ctx.fillText(`${Math.floor(this.canvasElement.height - this.doodler.position.y)} m`, 10, 30)
     }
 
 }
