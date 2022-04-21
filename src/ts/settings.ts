@@ -1,6 +1,6 @@
 export const settings = {
     fond : {
-        image : "../../fond.png"
+        image : "./fond.png"
     },
     platform : {
         platforms: {
@@ -20,7 +20,7 @@ export const settings = {
         active : false,
     },
     doodler : {
-        sprite : '../../sprite-doodle.png',
+        sprite : './sprite-doodle.png',
         frames : [
             {sx: 31, sy: 122, height:78, width:78},
             {sx: 0, sy: 202, height:78, width:78},
@@ -32,7 +32,7 @@ export const settings = {
         Maxjump : 50,
     },
     spring : {
-        sprite : '../../sprite-doodle.png',
+        sprite : './sprite-doodle.png',
         frames: [
             {sx: 0, sy: 469, height:30, width:48},
             {sx: 0, sy: 500, height:53, width:48},
