@@ -65,7 +65,7 @@ export class Platforms {
 
     animate() {
         if (this.color === settings.platform.platforms.color[0]) {
-            if (this.position.x < 0 || this.position.x > this.canvasElement.width - this.width) {
+            if (this.position.x < 7 || this.position.x > this.canvasElement.width - (this.width +7)) {
                 this.move.x = -this.move.x
             }
             this.position.x += this.move.x;

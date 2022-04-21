@@ -44,7 +44,7 @@ export class Doodler {
             this.move.x = -this.move.x
             this.position.x = this.canvasElement.width;
         }
-        if (this.position.x > this.canvasElement.width + 35) {
+        if (this.position.x > this.canvasElement.width  + 35) {
             this.move.x = -this.move.x
             this.position.x = 0;
         }

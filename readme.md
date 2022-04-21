@@ -20,7 +20,7 @@ Les règles de ce jeu sont assez simple. Le but est de faire monter le petit bon
 - Jetpack : Fait s'envoler le personnages durant 4 secondes et est plus rapide que le chapeaux;
 
 
-## Liste règles reprises
+## Liste des règles reprises
 
 - Bonhomme qui se déplace en hauteur (en sautant).
 - Plateforme apparraissent de façon aléatoire
