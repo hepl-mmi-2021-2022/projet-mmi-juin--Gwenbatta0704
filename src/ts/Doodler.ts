@@ -16,6 +16,8 @@ export class Doodler {
     private maxAnimationStep: number;
     public animationStep: number;
     private iCount: number;
+    private jump: number;
+    private isGoingDown: boolean;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, platforms: Platforms[], sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;
@@ -33,30 +35,35 @@ export class Doodler {
         this.maxAnimationStep = settings.doodler.frames.length - 1;
         this.animationStep = 0
         this.iCount = 3;
-
+        this.jump = settings.doodler.jump;
+        this.isGoingDown = false;
         this.animate();
-        //this.draw();
 
     }
 
     animate() {
-        if (this.position.x < -35) {
+        if (this.position.x < -40) {
             this.move.x = -this.move.x
             this.position.x = this.canvasElement.width;
         }
-        if (this.position.x > this.canvasElement.width  + 35) {
+        if (this.position.x > this.canvasElement.width + 35) {
             this.move.x = -this.move.x
-            this.position.x = 0;
+            this.position.x = -35;
         }
-        if (this.position.y < this.canvasElement.height - settings.doodler.jump || this.position.y > this.canvasElement.height) {
-            this.move.y = -this.move.y
+        if (this.jump > settings.doodler.Maxjump || this.jump < 0) {
+            this.isGoingDown = !this.isGoingDown
         }
-        this.position.x += this.move.x;
-        this.position.y += this.move.y;
+        if (!this.isGoingDown) {
+            this.jump += this.move.y
+            this.position.y -= this.jump;
+        } else {
+            this.position.y += this.jump;
+            this.jump -= this.move.y
+        }
+        this.position.x += this.move.x
         this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
         this.draw();
         this.checkTouchPlatforms();
-
     }
 
     draw() {
@@ -65,13 +72,10 @@ export class Doodler {
         this.ctx.scale(0.5, 0.5);
         this.ctx.drawImage(this.sprite, settings.doodler.frames[this.animationStep].sx, settings.doodler.frames[this.animationStep].sy, settings.doodler.frames[this.animationStep].width, settings.doodler.frames[this.animationStep].height, 0, 0, settings.doodler.frames[this.animationStep].width, settings.doodler.frames[this.animationStep].height);
         this.ctx.restore();
-
-
     }
 
     checkTouchPlatforms() {
         this.platforms.forEach((platform: Platforms, index) => {
-
             const bottomDoodlerL = {
                 x: this.position.x,
                 y: Math.floor(this.position.y),
@@ -92,27 +96,18 @@ export class Doodler {
             };
             if ((bottomDoodlerL.y === platformTopL.y) || (bottomDoodlerL.y === platformTopR.y) || (bottomDoodlerR.y === platformTopL.y) || (bottomDoodlerR.y === platformTopR.y)) {
                 if ((bottomDoodlerR.x >= platformTopL.x) && (bottomDoodlerL.x <= platformTopR.x)) {
-
-                    this.move.y = -this.move.y
-                    if (platform.active) {
-                        settings.doodler.jump += 50 * index
-                        this.position.y += this.move.y
-                        console.log('ici')
-                        platform.active = false
-                        if (platform.color === 'rgba(173,98,44,1)') {
-                            this.platforms.splice(index, 1);
-                        }
-                    } else {
-                        // settings.doodler.jump -= 50 * index
-                        //this.move.y += this.move.y
-                        platform.active = true
+                    settings.platform.active = true
+                    if (index >= 2) {
+                        console.log(index)
+                        this.platforms.splice(index - 3, 1);
                     }
-                    this.position.y = platformTopL.y
+                    console.log(settings.platform.active)
+                    if (platform.color === 'rgba(173,98,44,1)') {
+                        this.platforms.splice(index, 1);
+                    }
+
                 }
-                //this.position.y += this.move.y
-                console.log(settings.doodler.jump)
-                console.log(platform.active, index)
-                settings.doodler.jump = 100
+                settings.platform.active = false
             }
         })
     }

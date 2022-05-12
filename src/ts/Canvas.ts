@@ -10,16 +10,12 @@ export class Canvas{
     public platforms : Platforms[];
     public doodler : Doodler;
     public sprite: HTMLImageElement;
-
-
-
-    constructor() {
+    constructor(sprite: HTMLImageElement) {
         this.canvasElement = document.getElementById('my-canvas') as HTMLCanvasElement;
         this.ctx = this.canvasElement.getContext('2d') as CanvasRenderingContext2D;
         this.fond = new Fond(this.canvasElement,this.ctx);
         this.platforms = [];
-        this.sprite = new Image();
-        this.sprite.src = settings.doodler.sprite;
+       this.sprite = sprite
         this.update();
         this.doodler = new Doodler(this.canvasElement, this.ctx, this.platforms,this.sprite)
         this.draw();
@@ -36,12 +32,7 @@ export class Canvas{
             platform.draw();
         });
         this.doodler.draw();
-        this.score();
     }
-    score(){
-        this.ctx.fillStyle = '#5a5816'
-        this.ctx.font = '20px Gloria Hallelujah';
-        this.ctx.fillText(`${Math.floor(this.canvasElement.height - this.doodler.position.y)} m`, 10, 30)
-    }
+
 
 }

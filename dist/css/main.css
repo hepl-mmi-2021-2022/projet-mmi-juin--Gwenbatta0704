@@ -7,6 +7,7 @@
 
 body {
   font-family: "Gloria Hallelujah", cursive;
+  text-align: center;
 }
 
 h1 {
@@ -38,15 +39,16 @@ canvas {
 }
 
 .jeu {
-  position: absolute;
   max-width: 300px;
   display: flex;
-  justify-content: space-between;
   margin: 0 auto;
-  background: aqua;
+  padding-left: 50px;
 }
 
 #score {
   font-weight: 700;
   margin-bottom: 5px;
+  color: #5a5816;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 4px;
 }
