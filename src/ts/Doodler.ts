@@ -70,6 +70,7 @@ export class Doodler {
         this.ctx.save();
         this.ctx.translate(this.position.x + settings.doodler.frames[this.animationStep].width / 26, this.position.y - settings.doodler.frames[this.animationStep].height / 2);
         this.ctx.scale(0.5, 0.5);
+        this.ctx.fillRect(this.position.x + settings.doodler.frames[this.animationStep].width / 26, this.position.y - settings.doodler.frames[this.animationStep].height / 2,78,78 )
         this.ctx.drawImage(this.sprite, settings.doodler.frames[this.animationStep].sx, settings.doodler.frames[this.animationStep].sy, settings.doodler.frames[this.animationStep].width, settings.doodler.frames[this.animationStep].height, 0, 0, settings.doodler.frames[this.animationStep].width, settings.doodler.frames[this.animationStep].height);
         this.ctx.restore();
     }
@@ -85,30 +86,37 @@ export class Doodler {
                 y: Math.floor(this.position.y),
             };
             const platformTopL = {
-                x: Math.floor(platform.position.x + settings.doodler.frames[0].width / 2),
+                x: Math.floor(platform.position.x - settings.doodler.frames[0].width / 2),
                 y: Math.floor(platform.position.y),
-
             };
             const platformTopR = {
-                x: Math.floor(platform.position.x + platform.width),
+                x: Math.floor(platform.position.x + platform.width + settings.doodler.frames[0].width / 2),
                 y: Math.floor(platform.position.y),
 
             };
-            if ((bottomDoodlerL.y === platformTopL.y) || (bottomDoodlerL.y === platformTopR.y) || (bottomDoodlerR.y === platformTopL.y) || (bottomDoodlerR.y === platformTopR.y)) {
-                if ((bottomDoodlerR.x >= platformTopL.x) && (bottomDoodlerL.x <= platformTopR.x)) {
-                    settings.platform.active = true
-                    if (index >= 2) {
-                        console.log(index)
-                        this.platforms.splice(index - 3, 1);
-                    }
-                    console.log(settings.platform.active)
-                    if (platform.color === 'rgba(173,98,44,1)') {
-                        this.platforms.splice(index, 1);
-                    }
+            // console.log(this.position.x, this.position.y)
+            // console.log(platformTopL.x,platformTopR.x)
 
+            if ((bottomDoodlerL.x >= platformTopL.x) && (bottomDoodlerR.x <= platformTopR.x)) {
+                console.log('TEST')
+                if (platform.color === 'rgba(173,98,44,1)') {
+                    this.platforms.splice(index, 1);
                 }
-                settings.platform.active = false
+                if (bottomDoodlerL.y >= platformTopL.y) {
+                    this.position.y = platform.position.y
+                    console.log('TITO')
+                }else{
+                    this.position.y = this.canvasElement.height
+                }
             }
+            // if(bottomDoodlerR.y >= platformTopR.y){
+            // console.log('ICI')
+            // if ((bottomDoodlerR.x >= platformTopL.x) && (bottomDoodlerL.x <= platformTopR.x)) {
+            //     console.log('touche')
+            //     // this.position.y = platform.position.y;
+
+            //     }
+            // }
         })
     }
 }
